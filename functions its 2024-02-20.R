@@ -1,5 +1,4 @@
-#Adapted from Weinberger Vaccine eval workskshop, Gambia example
-
+#Function to ITS and compare counterfactuals
 step_func <- function(ds,
                      time_points=unique(ds$date),
                      post_period1=c('2009-04-01', '2011-12-31'),
@@ -156,12 +155,6 @@ step_func <- function(ds,
  rr.annual$ds <- as.character(k)
  rr.annual <- bind_cols(rr.annual, preds.annual, preds.cf.annual, denom, ipd_true)
  
- #Add rate
- #rr.annual <- rr.annual %>% 
-#   mutate(ipd_inc_true = (ipd_true/denom)*100000,
-#          ipd_inc_exp = (rr.annual$preds.cf.q.50/rr.annual$denom)*100000)
-   
-  
  rr.out <- list('rr.q.post' = rr.q.post, 'outcome'=ds[,outcome_name],
                 'preds.cf.q'=preds.cf.q,'preds.q'=preds.q,
                 'rr.q.t'=rr.q.t,'overdispersion'=overdispersion, 'dates'=ds$date, 'mod1.ds'=mod1.ds, "rr.annual"=rr.annual,
