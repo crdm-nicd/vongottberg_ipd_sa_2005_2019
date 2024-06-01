@@ -1,5 +1,4 @@
 #Adapted from Weinberger Vaccine eval workskshop, Gambia example
-#Instead of useing three post-vaccine periods, only using one post-COVID period
 
 step_func <- function(ds,
                      time_points=unique(ds$date),
